@@ -1,6 +1,6 @@
 {
   "name": "adnl",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "ADNL TypeScript implementation",
   "main": "./dist/node.js",
   "browser": "./dist/browser.js",
