@@ -74,8 +74,8 @@ class ADNLClientWS extends ADNLClient {
         this.socket.close()
     }
 
-    public write (data: Buffer): void {
-        const packet = new ADNLPacket(data)
+    public write (data: Buffer | Uint8Array): void {
+        const packet = new ADNLPacket(Buffer.from(data))
         const encrypted = this.encrypt(packet.data)
 
         this.socket.send(encrypted)

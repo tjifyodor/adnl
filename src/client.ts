@@ -157,8 +157,8 @@ class ADNLClient extends EventEmitter {
         this.socket.write(this.handshake)
     }
 
-    public write (data: Buffer): void {
-        const packet = new ADNLPacket(data)
+    public write (data: Buffer | Uint8Array): void {
+        const packet = new ADNLPacket(Buffer.from(data))
         const encrypted = this.encrypt(packet.data)
 
         this.socket.write(encrypted)
