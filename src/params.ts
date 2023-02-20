@@ -1,5 +1,5 @@
 import { sha256 } from './hash'
-import { randomBytes } from 'tweetnacl'
+import { randomBytes } from '@noble/hashes/utils'
 
 class ADNLAESParams {
     private _bytes: Uint8Array

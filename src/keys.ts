@@ -2,7 +2,7 @@ import {
     getPublicKey,
     getSharedSecret
 } from '@noble/ed25519'
-import { randomBytes } from 'tweetnacl'
+import { randomBytes } from '@noble/hashes/utils'
 
 class ADNLKeys {
     private _peer: Uint8Array

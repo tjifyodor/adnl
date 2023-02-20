@@ -1,5 +1,5 @@
 import { sha256 } from './hash'
-import { randomBytes } from 'tweetnacl'
+import { randomBytes } from '@noble/hashes/utils'
 
 const PACKET_MIN_SIZE = 4 + 32 + 32 // size + nonce + hash
 
@@ -10,7 +10,7 @@ class ADNLPacket {
 
     constructor (payload: Buffer, nonce: Buffer = Buffer.from(randomBytes(32))) {
         this._payload = payload
-        this._nonce = nonce// Buffer.from('8e561596e259180c85fccccbc30420d3d7e3c6808819aaea8c0e22157601f69f', 'hex')//nonce
+        this._nonce = nonce
     }
 
     public get payload (): Buffer {
