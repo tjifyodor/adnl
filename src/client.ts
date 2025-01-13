@@ -118,6 +118,10 @@ class ADNLClient extends EventEmitter {
 
     protected onClose (): void {
         this._state = ADNLClientState.CLOSED
+        if (!this.socket.destroyed) {
+            this.socket.destroy()
+        }
+        this.socket = null
         this.emit('close')
     }
 
@@ -178,7 +182,7 @@ class ADNLClient extends EventEmitter {
             return undefined
         }
 
-        this.socket.end()
+        this.socket.destroySoon()
     }
 
     protected encrypt (data: Buffer): Buffer {

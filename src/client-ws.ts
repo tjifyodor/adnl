@@ -71,7 +71,7 @@ class ADNLClientWS extends ADNLClient {
             return undefined
         }
 
-        this.socket.close()
+        this.socket.destroySoon()
     }
 
     public write (data: Buffer | Uint8Array): void {
